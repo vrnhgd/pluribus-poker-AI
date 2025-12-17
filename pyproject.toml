@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=62.6"]
+requires = ["setuptools>=69.0.0", "Cython"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -15,10 +15,11 @@ urls = {Homepage = "https://github.com/fedden/poker_ai"}
 requires-python = ">=3.7"
 dynamic = ["version", "dependencies"]
 
-[tool.setuptools]
-script-files = ['bin\poker_ai']
-include-package-data = false
+[project.scripts]
+poker_ai = "poker_ai.cli.runner:cli"
 
+[tool.setuptools]
+include-package-data = false
 [tool.setuptools.packages]
 find = {namespaces = false}
 
